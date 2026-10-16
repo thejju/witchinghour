@@ -1,0 +1,65 @@
+
+{% extends "base.html" %}
+{% block title %}My Book of Shadows | The Witching Hour{% endblock %}
+
+{% block content %}
+<section class="page-heading">
+    <p class="eyebrow">A PRIVATE CORNER OF YOUR OWN</p>
+    <h1>My Book of Shadows</h1>
+    <p>A personal journal for thoughts, ideas and discoveries.</p>
+</section>
+
+<section class="section">
+    <form class="form-panel" method="post" action="{{ url_for('journal') }}"
+          id="journal-form">
+        <p class="eyebrow">WRITE SOMETHING NEW</p>
+        <input type="hidden" name="entry_id" id="entry-id" value="">
+
+        <label for="entry-title">Entry title</label>
+        <input id="entry-title" name="title" maxlength="150"
+               placeholder="A thought beneath the moon..." required>
+
+        <label for="entry-content">Your entry</label>
+        <textarea id="entry-content" name="content"
+                  placeholder="Write your thoughts here..." required></textarea>
+
+        <button type="submit" class="btn btn-primary">Save Entry ✦</button>
+    </form>
+
+    <div style="margin-top: 45px;">
+        <p class="eyebrow">YOUR COLLECTION</p>
+        <h2>Past entries</h2>
+
+        {% if entries %}
+            {% for entry in entries %}
+                <article class="content-card journal-entry">
+                    <h3>{{ entry.title }}</h3>
+                    <time>{{ entry.created_at }}</time>
+                    <p>{{ entry.content }}</p>
+
+                    <div class="entry-actions">
+                        <button type="button" class="btn btn-outline"
+                                data-edit-entry="{{ entry.id }}"
+                                data-title="{{ entry.title }}"
+                                data-content="{{ entry.content }}">
+                            Edit entry
+                        </button>
+
+                        <form method="post"
+                              action="{{ url_for('delete_entry', entry_id=entry.id) }}"
+                              onsubmit="return confirm('Delete this entry permanently?');">
+                            <button type="submit" class="btn btn-outline">
+                                Delete
+                            </button>
+                        </form>
+                    </div>
+                </article>
+            {% endfor %}
+        {% else %}
+            <p class="section-description">
+                Your journal is waiting for its first entry.
+            </p>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}

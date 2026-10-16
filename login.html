@@ -1,0 +1,67 @@
+
+{% extends "base.html" %}
+
+{% block title %}
+    {% if registering %}Create Account{% else %}Login{% endif %} | The Witching Hour
+{% endblock %}
+
+{% block content %}
+<section class="auth-section">
+    <div class="auth-card">
+        <span class="auth-symbol">☾</span>
+
+        {% if registering %}
+            <h1>Create Your Account</h1>
+            <p>Begin your journey into the unknown.</p>
+        {% else %}
+            <h1>Welcome Back</h1>
+            <p>Enter your details to access your Book of Shadows.</p>
+        {% endif %}
+
+        <form method="POST">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    placeholder="Enter your username"
+                    minlength="3"
+                    required
+                    autocomplete="username"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Enter your password"
+                    minlength="{% if registering %}8{% else %}1{% endif %}"
+                    required
+                    autocomplete="{% if registering %}new-password{% else %}current-password{% endif %}"
+                >
+            </div>
+
+            <button type="submit" class="btn btn-primary auth-submit">
+                {% if registering %}Create Account{% else %}Login{% endif %}
+            </button>
+        </form>
+
+        <div class="auth-switch">
+            {% if registering %}
+                <p>Already have an account?
+                    <a href="{{ url_for('login') }}">Login here</a>
+                </p>
+            {% else %}
+                <p>New to The Witching Hour?
+                    <a href="{{ url_for('register') }}">Create an account</a>
+                </p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+{% endblock %}
+```

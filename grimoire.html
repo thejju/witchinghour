@@ -1,0 +1,72 @@
+
+{% extends "base.html" %}
+{% block title %}The Grimoire | The Witching Hour{% endblock %}
+
+{% block content %}
+<section class="page-heading">
+    <p class="eyebrow">THE ARCHIVE OF THE UNKNOWN</p>
+    <h1>The Grimoire</h1>
+    <p>A living library of folklore, traditions, symbols and stories.</p>
+</section>
+
+<section class="section">
+    <input class="search-box" type="search" data-search
+           placeholder="Search the archive..." aria-label="Search the archive">
+
+    <div class="content-grid">
+        <article class="content-card" data-search-card>
+            <span class="symbol">☾</span>
+            <h2>Moon Symbolism</h2>
+            <p>
+                Across cultures, the moon has been connected with time,
+                tides, cycles, storytelling and transformation.
+            </p>
+        </article>
+
+        <article class="content-card" data-search-card>
+            <span class="symbol">✦</span>
+            <h2>Folklore & Traditions</h2>
+            <p>
+                Explore how different communities developed stories,
+                customs and beliefs about the unseen world.
+            </p>
+        </article>
+
+        <article class="content-card" data-search-card>
+            <span class="symbol">❧</span>
+            <h2>Botanical Lore</h2>
+            <p>
+                Learn about the place of plants in traditional stories,
+                symbolism, crafts and cultural practices.
+            </p>
+        </article>
+
+        <article class="content-card" data-search-card>
+            <span class="symbol">◇</span>
+            <h2>Crystals & Symbols</h2>
+            <p>
+                Discover the historical and modern meanings associated
+                with decorative stones and symbolic objects.
+            </p>
+        </article>
+
+        <article class="content-card" data-search-card>
+            <span class="symbol">☼</span>
+            <h2>Seasonal Celebrations</h2>
+            <p>
+                Read about seasonal customs, harvest festivals and
+                the cultural significance of changes in nature.
+            </p>
+        </article>
+
+        <article class="content-card" data-search-card>
+            <span class="symbol">📜</span>
+            <h2>Historical Accounts</h2>
+            <p>
+                Explore how witchcraft beliefs have appeared in historical
+                records, literature and popular culture.
+            </p>
+        </article>
+    </div>
+</section>
+{% endblock %}

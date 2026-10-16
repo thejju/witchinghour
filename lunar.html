@@ -1,0 +1,41 @@
+
+{% extends "base.html" %}
+{% block title %}Lunar Observatory | The Witching Hour{% endblock %}
+
+{% block content %}
+<section class="page-heading">
+    <p class="eyebrow">THE CELESTIAL CYCLE</p>
+    <h1>Lunar Observatory</h1>
+    <p>The moon changes its appearance as it travels around Earth.</p>
+</section>
+
+<section class="section">
+    <div class="lunar-display">
+        <div class="lunar-symbol" id="moon-symbol">☾</div>
+        <p class="eyebrow">CURRENT APPROXIMATE PHASE</p>
+        <h2 id="moon-phase">Discovering the moon...</h2>
+        <p id="moon-date" class="section-description"></p>
+        <p id="moon-description" class="section-description"></p>
+    </div>
+
+    <div class="content-grid" style="margin-top: 35px;">
+        <article class="content-card">
+            <span class="symbol">●</span>
+            <h3>New Moon</h3>
+            <p>The moon's illuminated side faces away from Earth and is generally not visible.</p>
+        </article>
+        <article class="content-card">
+            <span class="symbol">◐</span>
+            <h3>First Quarter</h3>
+            <p>About half of the moon's visible disk appears illuminated.</p>
+        </article>
+        <article class="content-card">
+            <span class="symbol">○</span>
+            <h3>Full Moon</h3>
+            <p>The moon's visible disk appears fully illuminated from Earth.</p>
+        </article>
+    </div>
+</section>
+
+<script src="{{ url_for('static', filename='js/lunar.js') }}" defer></script>
+{% endblock %}
